@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE Workspace>
+<Workspace xmlns="http://www.qlcplus.org/Workspace" CurrentWindow="VC">
+ <Creator>
+  <Name>Q Light Controller Plus</Name>
+  <Version>5.3.0</Version>
+  <Author>wled-qlcplus tools/qlc_gen.py</Author>
+ </Creator>
+ <Engine>
+  <InputOutputMap>
+   <Universe Name="WLED presets" ID="0">
+    <Input Plugin="MIDI" Name="IAC Driver Bus 1" UID="" Line="0" />
+    <Output Plugin="E1.31" Name="4.3.2.2" UID="" Line="0">
+     <PluginParameters ucastIP="4.3.2.1" ucastPort="5568" universe="1" multicast="0" transmitMode="Full" priority="100" />
+    </Output>
+   </Universe>
+  </InputOutputMap>
+  <Fixture>
+   <Manufacturer>WLED</Manufacturer>
+   <Model>WLED 7x RGBW (E1.31)</Model>
+   <Mode>Preset (2ch, DMX mode 10)</Mode>
+   <ID>0</ID>
+   <Name>WLED presets</Name>
+   <Universe>0</Universe>
+   <Address>0</Address>
+   <Channels>2</Channels>
+   <ForcedHTP>1</ForcedHTP>
+  </Fixture>
+  <Function ID="0" Type="Scene" Name="Preset 1 Full" Path="Looks">
+   <Speed FadeIn="0" FadeOut="0" Duration="0" />
+   <FixtureVal ID="0">1,1</FixtureVal>
+  </Function>
+  <Function ID="1" Type="Scene" Name="Preset 2 Idle" Path="Looks">
+   <Speed FadeIn="0" FadeOut="0" Duration="0" />
+   <FixtureVal ID="0">1,2</FixtureVal>
+  </Function>
+  <Function ID="2" Type="Scene" Name="Preset 3 Zap" Path="Looks">
+   <Speed FadeIn="0" FadeOut="0" Duration="0" />
+   <FixtureVal ID="0">1,3</FixtureVal>
+  </Function>
+ </Engine>
+ <VirtualConsole>
+  <Frame Caption="WLED presets">
+   <Appearance>
+    <FrameStyle>None</FrameStyle>
+    <ForegroundColor>Default</ForegroundColor>
+    <BackgroundColor>Default</BackgroundColor>
+    <BackgroundImage>None</BackgroundImage>
+    <Font>Default</Font>
+   </Appearance>
+   <Label Caption="WLED DMX mode 10 (Preset). Flash buttons: a held value re-fires a playlist when it ends." ID="0">
+    <WindowState Visible="True" X="10" Y="10" Width="560" Height="40" />
+    <Appearance>
+     <FrameStyle>None</FrameStyle>
+     <ForegroundColor>Default</ForegroundColor>
+     <BackgroundColor>Default</BackgroundColor>
+     <BackgroundImage>None</BackgroundImage>
+     <Font>Default</Font>
+    </Appearance>
+   </Label>
+   <Button Caption="1 Full" ID="1">
+    <WindowState Visible="True" X="10" Y="60" Width="110" Height="60" />
+    <Appearance>
+     <FrameStyle>None</FrameStyle>
+     <ForegroundColor>Default</ForegroundColor>
+     <BackgroundColor>Default</BackgroundColor>
+     <BackgroundImage>None</BackgroundImage>
+     <Font>Default</Font>
+    </Appearance>
+    <Function ID="0" />
+    <Action>Flash</Action>
+    <Input ID="0" Universe="0" Channel="164" />
+   </Button>
+   <Button Caption="2 Idle" ID="2">
+    <WindowState Visible="True" X="125" Y="60" Width="110" Height="60" />
+    <Appearance>
+     <FrameStyle>None</FrameStyle>
+     <ForegroundColor>Default</ForegroundColor>
+     <BackgroundColor>Default</BackgroundColor>
+     <BackgroundImage>None</BackgroundImage>
+     <Font>Default</Font>
+    </Appearance>
+    <Function ID="1" />
+    <Action>Flash</Action>
+    <Input ID="0" Universe="0" Channel="165" />
+   </Button>
+   <Button Caption="3 Zap" ID="3">
+    <WindowState Visible="True" X="240" Y="60" Width="110" Height="60" />
+    <Appearance>
+     <FrameStyle>None</FrameStyle>
+     <ForegroundColor>Default</ForegroundColor>
+     <BackgroundColor>Default</BackgroundColor>
+     <BackgroundImage>None</BackgroundImage>
+     <Font>Default</Font>
+    </Appearance>
+    <Function ID="2" />
+    <Action>Flash</Action>
+    <Input ID="0" Universe="0" Channel="166" />
+   </Button>
+   <Slider Caption="Brightness" ID="4">
+    <WindowState Visible="True" X="480" Y="60" Width="70" Height="260" />
+    <Appearance>
+     <FrameStyle>None</FrameStyle>
+     <ForegroundColor>Default</ForegroundColor>
+     <BackgroundColor>Default</BackgroundColor>
+     <BackgroundImage>None</BackgroundImage>
+     <Font>Default</Font>
+    </Appearance>
+    <SliderMode ValueDisplayStyle="Exact">Level</SliderMode>
+    <Level LowLimit="0" HighLimit="255" Value="255">
+     <Channel Fixture="0">0</Channel>
+    </Level>
+    <Input ID="0" Universe="0" Channel="20" />
+   </Slider>
+  </Frame>
+ </VirtualConsole>
+</Workspace>

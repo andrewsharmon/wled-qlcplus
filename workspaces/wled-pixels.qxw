@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE Workspace>
+<Workspace xmlns="http://www.qlcplus.org/Workspace" CurrentWindow="VC">
+ <Creator>
+  <Name>Q Light Controller Plus</Name>
+  <Version>5.3.0</Version>
+  <Author>wled-qlcplus tools/qlc_gen.py</Author>
+ </Creator>
+ <Engine>
+  <InputOutputMap>
+   <Universe Name="WLED pixels" ID="0">
+    <Input Plugin="MIDI" Name="IAC Driver Bus 1" UID="" Line="0" />
+    <Output Plugin="E1.31" Name="4.3.2.2" UID="" Line="0">
+     <PluginParameters ucastIP="4.3.2.1" ucastPort="5568" universe="1" multicast="0" transmitMode="Full" priority="100" />
+    </Output>
+   </Universe>
+  </InputOutputMap>
+  <Fixture>
+   <Manufacturer>WLED</Manufacturer>
+   <Model>WLED 7x RGBW (E1.31)</Model>
+   <Mode>Pixels RGBW (28ch, DMX mode 6)</Mode>
+   <ID>0</ID>
+   <Name>WLED pixels</Name>
+   <Universe>0</Universe>
+   <Address>0</Address>
+   <Channels>28</Channels>
+  </Fixture>
+  <FixtureGroup ID="0">
+   <Name>Strip</Name>
+   <Size X="7" Y="1" />
+   <Head X="0" Y="0" Fixture="0">0</Head>
+   <Head X="1" Y="0" Fixture="0">1</Head>
+   <Head X="2" Y="0" Fixture="0">2</Head>
+   <Head X="3" Y="0" Fixture="0">3</Head>
+   <Head X="4" Y="0" Fixture="0">4</Head>
+   <Head X="5" Y="0" Fixture="0">5</Head>
+   <Head X="6" Y="0" Fixture="0">6</Head>
+  </FixtureGroup>
+  <Function ID="0" Type="RGBMatrix" Name="Rainbow" Path="Matrices">
+   <Tempo>Time</Tempo>
+   <Speed FadeIn="0" FadeOut="0" Duration="60" />
+   <Direction>Forward</Direction>
+   <RunOrder>Loop</RunOrder>
+   <Algorithm Type="Script">Gradient</Algorithm>
+   <ControlMode>RGB</ControlMode>
+   <FixtureGroup>0</FixtureGroup>
+   <Property Name="presetIndex" Value="Rainbow" />
+   <Property Name="presetSize" Value="7" />
+  </Function>
+  <Function ID="1" Type="RGBMatrix" Name="Sine wave" Path="Matrices">
+   <Tempo>Time</Tempo>
+   <Speed FadeIn="0" FadeOut="0" Duration="80" />
+   <Direction>Forward</Direction>
+   <RunOrder>Loop</RunOrder>
+   <Algorithm Type="Script">Sine Wave</Algorithm>
+   <Color Index="0">4294901760</Color>
+   <Color Index="1">4278190335</Color>
+   <ControlMode>RGB</ControlMode>
+   <FixtureGroup>0</FixtureGroup>
+  </Function>
+  <Function ID="2" Type="RGBMatrix" Name="Fire flicker" Path="Matrices">
+   <Tempo>Time</Tempo>
+   <Speed FadeIn="0" FadeOut="0" Duration="60" />
+   <Direction>Forward</Direction>
+   <RunOrder>Loop</RunOrder>
+   <Algorithm Type="Script">Fire Flicker</Algorithm>
+   <Color Index="0">4294918144</Color>
+   <ControlMode>RGB</ControlMode>
+   <FixtureGroup>0</FixtureGroup>
+  </Function>
+  <Function ID="3" Type="RGBMatrix" Name="Meteor" Path="Matrices">
+   <Tempo>Time</Tempo>
+   <Speed FadeIn="0" FadeOut="0" Duration="80" />
+   <Direction>Forward</Direction>
+   <RunOrder>Loop</RunOrder>
+   <Algorithm Type="Script">Meteor</Algorithm>
+   <Color Index="0">4278255488</Color>
+   <ControlMode>RGB</ControlMode>
+   <FixtureGroup>0</FixtureGroup>
+  </Function>
+  <Function ID="4" Type="RGBMatrix" Name="TwinkleFox" Path="Matrices">
+   <Tempo>Time</Tempo>
+   <Speed FadeIn="0" FadeOut="0" Duration="60" />
+   <Direction>Forward</Direction>
+   <RunOrder>Loop</RunOrder>
+   <Algorithm Type="Script">TwinkleFox</Algorithm>
+   <ControlMode>RGB</ControlMode>
+   <FixtureGroup>0</FixtureGroup>
+  </Function>
+  <Function ID="5" Type="RGBMatrix" Name="Sinelon" Path="Matrices">
+   <Tempo>Time</Tempo>
+   <Speed FadeIn="0" FadeOut="0" Duration="60" />
+   <Direction>Forward</Direction>
+   <RunOrder>Loop</RunOrder>
+   <Algorithm Type="Script">Sinelon</Algorithm>
+   <Color Index="0">4294945280</Color>
+   <ControlMode>RGB</ControlMode>
+   <FixtureGroup>0</FixtureGroup>
+  </Function>
+  <Function ID="6" Type="Scene" Name="Full white (W)" Path="Looks">
+   <Speed FadeIn="0" FadeOut="0" Duration="0" />
+   <FixtureVal ID="0">3,255,7,255,11,255,15,255,19,255,23,255,27,255</FixtureVal>
+  </Function>
+  <Function ID="7" Type="Scene" Name="Ends red" Path="Looks">
+   <Speed FadeIn="0" FadeOut="0" Duration="0" />
+   <FixtureVal ID="0">0,255,24,255</FixtureVal>
+  </Function>
+ </Engine>
+ <VirtualConsole>
+  <Frame Caption="WLED pixels">
+   <Appearance>
+    <FrameStyle>None</FrameStyle>
+    <ForegroundColor>Default</ForegroundColor>
+    <BackgroundColor>Default</BackgroundColor>
+    <BackgroundImage>None</BackgroundImage>
+    <Font>Default</Font>
+   </Appearance>
+   <Label Caption="WLED DMX mode 6 (Multi RGBW), 7 LEDs from address 1. Notes 36+ pick looks." ID="0">
+    <WindowState Visible="True" X="10" Y="10" Width="560" Height="40" />
+    <Appearance>
+     <FrameStyle>None</FrameStyle>
+     <ForegroundColor>Default</ForegroundColor>
+     <BackgroundColor>Default</BackgroundColor>
+     <BackgroundImage>None</BackgroundImage>
+     <Font>Default</Font>
+    </Appearance>
+   </Label>
+   <SoloFrame Caption="Matrices (one at a time)" ID="1">
+    <WindowState Visible="True" X="10" Y="60" Width="480" Height="220" />
+    <Appearance>
+     <FrameStyle>None</FrameStyle>
+     <ForegroundColor>Default</ForegroundColor>
+     <BackgroundColor>Default</BackgroundColor>
+     <BackgroundImage>None</BackgroundImage>
+     <Font>Default</Font>
+    </Appearance>
+    <ShowHeader>True</ShowHeader>
+    <Button Caption="Rainbow" ID="2">
+     <WindowState Visible="True" X="10" Y="40" Width="110" Height="60" />
+     <Appearance>
+      <FrameStyle>None</FrameStyle>
+      <ForegroundColor>Default</ForegroundColor>
+      <BackgroundColor>Default</BackgroundColor>
+      <BackgroundImage>None</BackgroundImage>
+      <Font>Default</Font>
+     </Appearance>
+     <Function ID="0" />
+     <Action>Toggle</Action>
+     <Input ID="0" Universe="0" Channel="164" />
+    </Button>
+    <Button Caption="Sine wave" ID="3">
+     <WindowState Visible="True" X="125" Y="40" Width="110" Height="60" />
+     <Appearance>
+      <FrameStyle>None</FrameStyle>
+      <ForegroundColor>Default</ForegroundColor>
+      <BackgroundColor>Default</BackgroundColor>
+      <BackgroundImage>None</BackgroundImage>
+      <Font>Default</Font>
+     </Appearance>
+     <Function ID="1" />
+     <Action>Toggle</Action>
+     <Input ID="0" Universe="0" Channel="165" />
+    </Button>
+    <Button Caption="Fire flicker" ID="4">
+     <WindowState Visible="True" X="240" Y="40" Width="110" Height="60" />
+     <Appearance>
+      <FrameStyle>None</FrameStyle>
+      <ForegroundColor>Default</ForegroundColor>
+      <BackgroundColor>Default</BackgroundColor>
+      <BackgroundImage>None</BackgroundImage>
+      <Font>Default</Font>
+     </Appearance>
+     <Function ID="2" />
+     <Action>Toggle</Action>
+     <Input ID="0" Universe="0" Channel="166" />
+    </Button>
+    <Button Caption="Meteor" ID="5">
+     <WindowState Visible="True" X="355" Y="40" Width="110" Height="60" />
+     <Appearance>
+      <FrameStyle>None</FrameStyle>
+      <ForegroundColor>Default</ForegroundColor>
+      <BackgroundColor>Default</BackgroundColor>
+      <BackgroundImage>None</BackgroundImage>
+      <Font>Default</Font>
+     </Appearance>
+     <Function ID="3" />
+     <Action>Toggle</Action>
+     <Input ID="0" Universe="0" Channel="167" />
+    </Button>
+    <Button Caption="TwinkleFox" ID="6">
+     <WindowState Visible="True" X="10" Y="110" Width="110" Height="60" />
+     <Appearance>
+      <FrameStyle>None</FrameStyle>
+      <ForegroundColor>Default</ForegroundColor>
+      <BackgroundColor>Default</BackgroundColor>
+      <BackgroundImage>None</BackgroundImage>
+      <Font>Default</Font>
+     </Appearance>
+     <Function ID="4" />
+     <Action>Toggle</Action>
+     <Input ID="0" Universe="0" Channel="168" />
+    </Button>
+    <Button Caption="Sinelon" ID="7">
+     <WindowState Visible="True" X="125" Y="110" Width="110" Height="60" />
+     <Appearance>
+      <FrameStyle>None</FrameStyle>
+      <ForegroundColor>Default</ForegroundColor>
+      <BackgroundColor>Default</BackgroundColor>
+      <BackgroundImage>None</BackgroundImage>
+      <Font>Default</Font>
+     </Appearance>
+     <Function ID="5" />
+     <Action>Toggle</Action>
+     <Input ID="0" Universe="0" Channel="169" />
+    </Button>
+   </SoloFrame>
+   <Button Caption="Full white (W)" ID="8">
+    <WindowState Visible="True" X="10" Y="290" Width="110" Height="60" />
+    <Appearance>
+     <FrameStyle>None</FrameStyle>
+     <ForegroundColor>Default</ForegroundColor>
+     <BackgroundColor>Default</BackgroundColor>
+     <BackgroundImage>None</BackgroundImage>
+     <Font>Default</Font>
+    </Appearance>
+    <Function ID="6" />
+    <Action>Toggle</Action>
+    <Input ID="0" Universe="0" Channel="170" />
+   </Button>
+   <Button Caption="Ends red" ID="9">
+    <WindowState Visible="True" X="125" Y="290" Width="110" Height="60" />
+    <Appearance>
+     <FrameStyle>None</FrameStyle>
+     <ForegroundColor>Default</ForegroundColor>
+     <BackgroundColor>Default</BackgroundColor>
+     <BackgroundImage>None</BackgroundImage>
+     <Font>Default</Font>
+    </Appearance>
+    <Function ID="7" />
+    <Action>Flash</Action>
+    <Input ID="0" Universe="0" Channel="171" />
+   </Button>
+   <Button Caption="Blackout" ID="10">
+    <WindowState Visible="True" X="240" Y="290" Width="110" Height="60" />
+    <Appearance>
+     <FrameStyle>None</FrameStyle>
+     <ForegroundColor>Default</ForegroundColor>
+     <BackgroundColor>4282384384</BackgroundColor>
+     <BackgroundImage>None</BackgroundImage>
+     <Font>Default</Font>
+    </Appearance>
+    <Action>Blackout</Action>
+    <Input ID="0" Universe="0" Channel="176" />
+   </Button>
+   <Slider Caption="Master" ID="11">
+    <WindowState Visible="True" X="500" Y="60" Width="70" Height="260" />
+    <Appearance>
+     <FrameStyle>None</FrameStyle>
+     <ForegroundColor>Default</ForegroundColor>
+     <BackgroundColor>Default</BackgroundColor>
+     <BackgroundImage>None</BackgroundImage>
+     <Font>Default</Font>
+    </Appearance>
+    <SliderMode ValueDisplayStyle="Exact">GrandMaster</SliderMode>
+    <Input ID="0" Universe="0" Channel="20" />
+   </Slider>
+  </Frame>
+ </VirtualConsole>
+</Workspace>
