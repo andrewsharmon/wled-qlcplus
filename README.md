@@ -92,9 +92,33 @@ The Virtual Console has these controls, also mapped to MIDI notes and CCs on cha
 Looks are one-at-a-time; pressing a look's button again turns it off.
 
 **MIDI from a DAW (e.g. Ableton Live).** The workspaces listen on a MIDI input named
-"IAC Driver Bus 1". On macOS, enable the IAC Driver in Audio MIDI Setup and send a MIDI track to it;
-on Windows, create a loopMIDI port. If your port has a different name, pick it under
-Inputs/Outputs, or regenerate with `python3 tools/qlc_gen.py --midi "Your Port"`.
+"IAC Driver Bus 1". On macOS, enable the IAC Driver in Audio MIDI Setup and send a MIDI track to it.
+For Windows, see below. If your port has a different name, pick it under Inputs/Outputs, or
+regenerate with `python3 tools/qlc_gen.py --midi "Your Port"`.
+
+## Windows: Ableton → loopMIDI → QLC+
+
+Windows has no built-in MIDI loopback yet, so use [loopMIDI](https://www.tobias-erichsen.de/software/loopmidi.html)
+(free; listed for Windows 7–10, check it on Windows 11).
+
+1. **loopMIDI:** type a port name (e.g. `QLC`) and click **+**. Ports exist only while loopMIDI
+   runs, so enable autostart from its tray icon. Keep the name to 31 characters or fewer.
+2. **Ableton:** Preferences → Link, Tempo & MIDI → for the `QLC` port turn **Track on for the
+   Output** and leave its **Input off**. A loopback returns everything Ableton sends, so both on
+   makes a MIDI feedback loop. Set a MIDI track's *MIDI To* to `QLC`, channel 1.
+3. **Workspaces:** QLC+ matches the input by its exact name, and Windows won't necessarily get
+   4.3.2.2 on WLED's access point (check with `ipconfig`). Regenerate with both:
+
+   ```bash
+   py tools\qlc_gen.py --midi "QLC" --iface 4.3.2.3
+   ```
+
+4. **Fixture:** copy `fixtures\WLED-7x-RGBW-E131.qxf` to `%USERPROFILE%\QLC+\Fixtures`.
+5. Start loopMIDI, then QLC+ and Ableton. In QLC+, Inputs/Outputs should show the `QLC` input on
+   the universe; if not, select it there.
+
+loopMIDI ports can be opened by several apps at once (up to 8), so Ableton and QLC+ share one
+port. E1.31 from QLC+ is outgoing UDP, which the Windows firewall allows by default.
 
 ## Good to know
 
@@ -111,4 +135,4 @@ Inputs/Outputs, or regenerate with `python3 tools/qlc_gen.py --midi "Your Port"`
 - **Other LED counts:** the effect and preset modes don't depend on LED count; for the pixel modes,
   regenerate with `python3 tools/qlc_gen.py --leds 30` (re-copy the new fixture file). Use
   `--fetch --wled <ip>` to pull effect, palette and preset names from your own board first.
-- The tools need Python 3.9+ and no extra packages.
+- The tools need Python 3.9+ and no extra packages (on Windows run them with `py`).
